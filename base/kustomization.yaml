@@ -1,8 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-    name: kyverno
-        namespace: kyverno
 
-        resources:
-            - https://raw.githubusercontent.com/kyverno/kyverno/release-1.7/config/release/install.yaml
+namespace: kyverno
+
+resources:
+  - https://raw.githubusercontent.com/kyverno/kyverno/release-1.7/config/release/install.yaml
+
+patches:
+  - path: argocd-cm.yaml
+  - path: argocd-application.yaml 
