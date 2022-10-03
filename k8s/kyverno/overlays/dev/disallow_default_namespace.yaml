@@ -14,31 +14,31 @@ metadata:
       practice, workloads should be isolated with Namespaces. Namespaces should be required
       and the default (empty) Namespace should not be used. This policy validates that Pods
       specify a Namespace name other than `default`.
-  spec:
-    validationFailureAction: audit
-    background: true
-    rules:
-      - name: validate-namespace
-        match:
-          resources:
-            kinds:
-              - Pod
-        validate:
-          message: "Using 'default' namespace is not allowed."
-          pattern:
-            metadata:
-              namespace: "!default"
-      - name: validate-pod-controller-namespace
-        match:
-          resources:
-            kinds:
-              - DaemonSet
-              - Deployment
-              - Job
-              - StatefulSet
-        validate:
-          message: "Using 'default' namespace is not allowed for pod controllers."
-          pattern:
-            metadata:
-              namespace: "!default"
+spec:
+  validationFailureAction: audit
+  background: true
+  rules:
+    - name: validate-namespace
+      match:
+        resources:
+          kinds:
+            - Pod
+      validate:
+        message: "Using 'default' namespace is not allowed."
+        pattern:
+          metadata:
+            namespace: "!default"
+    - name: validate-pod-controller-namespace
+      match:
+        resources:
+          kinds:
+            - DaemonSet
+            - Deployment
+            - Job
+            - StatefulSet
+      validate:
+        message: "Using 'default' namespace is not allowed for pod controllers."
+        pattern:
+          metadata:
+            namespace: "!default"
 
