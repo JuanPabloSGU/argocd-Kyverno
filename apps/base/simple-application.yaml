@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: simple-app
   namespace: argocd
 spec:
   project: default
@@ -17,3 +17,6 @@ spec:
       allowEmpty: true
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - respectIgnoreDifferences=true
