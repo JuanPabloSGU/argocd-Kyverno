@@ -6,3 +6,5 @@ resources:
 
 patches:
   - path: disallow_default_namespace.yaml
+    target:
+      namespace: kyverno
