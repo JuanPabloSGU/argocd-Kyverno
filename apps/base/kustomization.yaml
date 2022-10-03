@@ -5,4 +5,5 @@ resources:
   - simple-application.yaml
   - argocd-application.yaml
   - kyverno-application.yaml
+  - kyverno-helm-application.yaml
 

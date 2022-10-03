@@ -1,0 +1,28 @@
+apiVerion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kyverno-helm
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-40"
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  source:
+    repoURL: https://github.com/JuanPabloSGU/argocd-Kyverno.git
+    path: k8s/kyverno-helm
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - 
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - respectIgnoreDifferences=true
+
+
