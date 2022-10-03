@@ -4,4 +4,5 @@ kind: Kustomization
 resources:
   - simple-application.yaml
   - argocd-application.yaml
+  - kyverno-application.yaml
 
