@@ -25,5 +25,5 @@ appVersion: "1.16.0"
 
 dependencies:
   - name: kyverno
-    version: v1.8.0-rc5
-    repository: https://github.com/kyverno/kyverno/tree/release-1.8/charts/kyverno
+    version: v1.8.0
+    repository: https://kyverno.github.io/kyverno/
