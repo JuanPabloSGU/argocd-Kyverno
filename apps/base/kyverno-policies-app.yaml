@@ -17,7 +17,7 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - 
+        - sandbox/values.yaml
   project: default
   syncPolicy:
     automated:
