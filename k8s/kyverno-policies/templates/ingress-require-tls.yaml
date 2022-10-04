@@ -1,0 +1,30 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: ingress-require-tls
+spec:
+  background: true
+  validationFailureAction: enforce
+  rules:
+  - name: require-tls
+    match:
+      any:
+        - resources:
+            kinds:
+            - Ingress
+    exclude:
+      any:
+        - resources:
+            name: "cm-acme-http-solver-*"
+        - resources:
+            annotations:
+              nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
+              nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
+    validate:
+      message: "Ingress is required to have TLS."
+      pattern:
+        spec:
+          tls:
+            - hosts:
+              - "?*"
+              secretName: "?*"

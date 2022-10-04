@@ -1,0 +1,58 @@
+{{- $usersVar := dict "registries" (list) -}}
+{{- range .Values.users.authorizedRegistries -}}
+{{- $noop := printf "%s/* | %s:*" . . | append $usersVar.registries | set $usersVar "registries" -}}
+{{- end }}
+{{- $webservicesVar := dict "registries" (list) -}}
+{{- range .Values.webservices.authorizedRegistries -}}
+{{- $noop := printf "%s/* | %s:*" . . | append $webservicesVar.registries | set $webservicesVar "registries" -}}
+{{- end }}
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: authorized-registries
+spec:
+  validationFailureAction: enforce
+  background: true
+  rules:
+  - name: authorized-registries-users
+    match:
+      any:
+        - resources:
+            kinds:
+            - Pod
+            namespaces:
+            - "user-?*"
+    validate:
+      message: >-
+        Images must come from {{ join " or " $usersVar.registries }}
+      pattern:
+        spec:
+          containers:
+            - image: "{{ join " | " $usersVar.registries }}"
+          =(initContainers):
+            - image: "{{ join " | " $usersVar.registries }}"
+  - name: authorized-registries-webservices
+    match:
+      any:
+        - resources:
+            kinds:
+            - Pod
+            namespaceSelector:
+              matchExpressions:
+              - key: osc.edu/role
+                operator: In
+                values:
+                - webservice
+    exclude:
+      any:
+        - resources:
+            name: "cm-acme-http-solver-*"
+    validate:
+      message: >-
+        Images must come from {{ join " or " $webservicesVar.registries }}
+      pattern:
+        spec:
+          containers:
+            - image: "{{ join " | " $webservicesVar.registries }}"
+          =(initContainers):
+            - image: "{{ join " | " $webservicesVar.registries }}"
