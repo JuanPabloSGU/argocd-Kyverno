@@ -13,6 +13,8 @@ metadata:
       This policy will generate ResourceQuota and LimitRange resources when
       a new Namespace is created.
 spec:
+  validationFailureAction: audit
+  background: false
   rules:
   - name: generate-resourcequota
     match:

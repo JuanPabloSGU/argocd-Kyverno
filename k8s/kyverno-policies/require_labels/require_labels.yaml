@@ -14,7 +14,7 @@ metadata:
       queried. This policy validates that the label `app.kubernetes.io/name` is specified with some value.
 spec:
   validationFailureAction: audit
-  background: true
+  background: false
   rules:
   - name: check-for-labels
     match:

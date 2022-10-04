@@ -16,7 +16,7 @@ metadata:
       specify a Namespace name other than `default`.
 spec:
   validationFailureAction: audit
-  background: true
+  background: false
   rules:
   - name: validate-namespace
     match:

@@ -16,7 +16,7 @@ metadata:
       requests and memory limits.
 spec:
   validationFailureAction: audit
-  background: true
+  background: false
   rules:
   - name: validate-resources
     match:

@@ -18,7 +18,7 @@ metadata:
       ensuring the `periodSeconds` field is greater than zero.
 spec:
   validationFailureAction: audit
-  background: true
+  background: false
   rules:
   - name: validate-livenessProbe-readinessProbe
     match:

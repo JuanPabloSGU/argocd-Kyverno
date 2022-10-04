@@ -16,7 +16,7 @@ metadata:
       ability.      
 spec:
   validationFailureAction: audit
-  background: true
+  background: false
   rules:
     - name: require-drop-cap-net-raw
       match:

@@ -16,7 +16,7 @@ metadata:
       `bar.io`.
 spec:
   validationFailureAction: audit
-  background: true
+  background: false
   rules:
   - name: validate-registries
     match:

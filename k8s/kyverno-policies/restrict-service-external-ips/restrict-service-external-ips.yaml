@@ -14,7 +14,7 @@ metadata:
       that the `externalIPs` field is not set on a Service.
 spec:
   validationFailureAction: audit
-  background: true
+  background: false
   rules:
   - name: check-ips
     match:
