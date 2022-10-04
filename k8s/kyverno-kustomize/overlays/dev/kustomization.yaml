@@ -6,5 +6,5 @@ namespace: kyverno
 resources:
   - ../../base/
 
-patches:
-  - path: disallow_default_namespace.yaml
+    #patches:
+    #- path: disallow_default_namespace.yaml
