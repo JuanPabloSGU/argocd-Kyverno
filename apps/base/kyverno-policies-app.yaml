@@ -27,3 +27,4 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - respectIgnoreDifferences=true
+      - ApplyOutofSyncOnly=true
