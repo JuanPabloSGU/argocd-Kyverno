@@ -1,10 +1,12 @@
-apiVerion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kyverno-helm
+  name: kyverno
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "-40"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     server: https://kubernetes.default.svc
@@ -16,6 +18,7 @@ spec:
     helm:
       valueFiles:
         - values.yaml
+  project: default
   syncPolicy:
     automated:
       allowEmpty: true
