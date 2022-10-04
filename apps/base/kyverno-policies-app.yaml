@@ -15,7 +15,7 @@ spec:
         - /spec/rules
     - group: kyverno.io
       kind: Policy
-      jsonPointesrs:
+      jsonPointers:
         - /spec/rules
   destination:
     server: https://kubernetes.default.svc
