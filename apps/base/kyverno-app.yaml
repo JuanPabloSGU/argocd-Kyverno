@@ -11,11 +11,11 @@ spec:
     namespace: default
   source:
     repoURL: https://github.com/JuanPabloSGU/argocd-Kyverno.git
-    path: k8s/kyverno-helm
+    path: k8s/kyverno/
     targetRevision: HEAD
     helm:
       valueFiles:
-        - 
+        - values.yaml
   syncPolicy:
     automated:
       allowEmpty: true
