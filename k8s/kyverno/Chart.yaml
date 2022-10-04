@@ -25,5 +25,5 @@ appVersion: "1.16.0"
 
 dependencies:
   - name: kyverno
-    version: v1.8.0
+    version: release-1.7
     repository: https://kyverno.github.io/kyverno/
