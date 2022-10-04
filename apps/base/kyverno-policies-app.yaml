@@ -8,6 +8,15 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  ignoreDifferences:
+    - group: kyverno.io
+      kind: ClusterPolicy
+      jsonPointers:
+        - /spec/rules
+    - group: kyverno.io
+      kind: Policy
+      jsonPointesrs:
+        - /spec/rules
   destination:
     server: https://kubernetes.default.svc
     namespace: default
