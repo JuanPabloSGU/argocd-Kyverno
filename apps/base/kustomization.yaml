@@ -5,5 +5,5 @@ resources:
   - simple-application.yaml
   - argocd-application.yaml
   - kyverno-app.yaml
-  - kyverno-policies-app.yaml
+    # - kyverno-policies-app.yaml
 
