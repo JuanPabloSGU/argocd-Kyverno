@@ -1,1 +1,4 @@
 ignore/
+k8s/kyverno-policies-helm-depreciated/
+k8s/kyverno-policies-test-demo/
+k8s/kyverno-kustomize/
