@@ -3,7 +3,7 @@ kind: Kustomization
 metadata:
   name: kyverno-policies-baseline
 
-base:
+bases:
   - ../../base/
 
 resources:
