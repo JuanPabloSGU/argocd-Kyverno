@@ -7,5 +7,5 @@ bases:
   - ../../base/
 
 resources:
-  - https://raw.githubusercontent.com/kyverno/policies/release-1.8/pod-security/baseline/kustomization.yaml
+  - https://raw.githubusercontent.com/kyverno/policies/release-1.8/pod-security/baseline/disallow-capabilities/disallow-capabilities.yaml
 
