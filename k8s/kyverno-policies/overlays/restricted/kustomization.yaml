@@ -3,5 +3,13 @@ kind: Kustomization
 metadata:
   name: kyverno-policies-restricted
 
+bases:
+  - ../baseline/
+
 resources:
-  - https://github.com/kyverno/policies/tree/release-1.8/pod-security/restricted
+  - https://raw.githubusercontent.com/kyverno/policies/release-1.8/pod-security/restricted/disallow-capabilities-strict/disallow-capabilities-strict.yaml
+  - https://raw.githubusercontent.com/kyverno/policies/release-1.8/pod-security/restricted/disallow-privilege-escalation/disallow-privilege-escalation.yaml
+  - https://raw.githubusercontent.com/kyverno/policies/release-1.8/pod-security/restricted/require-run-as-non-root-user/require-run-as-non-root-user.yaml
+  - https://raw.githubusercontent.com/kyverno/policies/release-1.8/pod-security/restricted/require-run-as-nonroot/require-run-as-nonroot.yaml
+  - https://raw.githubusercontent.com/kyverno/policies/release-1.8/pod-security/restricted/restrict-seccomp-strict/restrict-seccomp-strict.yaml
+  - https://raw.githubusercontent.com/kyverno/policies/release-1.8/pod-security/restricted/restrict-volume-types/restrict-volume-types.yaml

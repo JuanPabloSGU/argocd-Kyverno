@@ -3,5 +3,13 @@ kind: Kustomization
 metadata:
   name: kyverno-policies-enforce
 
-resources:
-  - https://github.com/kyverno/policies/tree/release-1.8/pod-security/enfore
+bases:
+  - ../restricted/
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/validationFailureAction
+        value: enforce
+    target:
+      kind: ClusterPolicy
