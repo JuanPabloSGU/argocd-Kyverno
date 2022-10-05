@@ -3,5 +3,9 @@ kind: Kustomization
 metadata:
   name: kyverno-policies-baseline
 
+base:
+  - ../../base/
+
 resources:
-  - https://github.com/kyverno/policies/tree/release-1.8/pod-security/baseline
+  - https://raw.githubusercontent.com/kyverno/policies/release-1.8/pod-security/baseline/kustomization.yaml
+
