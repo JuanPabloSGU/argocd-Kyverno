@@ -7,11 +7,10 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.9/manifests/install.yaml
 # -  namespace.yaml
 
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.9/manifests/crds/application-crd.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.9/manifests/crds/appproject-crd.yaml
-
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.9/manifests/crds/applicationset-crd.yaml
 
-  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.9/manifests/crds/application-crd.yaml
 
 patches:
   - path: argocd-cm.yaml
