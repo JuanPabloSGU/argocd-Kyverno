@@ -3,7 +3,7 @@ kind: Component
 metadata:
   name: kyverno-policies-restricted
 
-bases:
+components:
   - ../baseline/
 
 resources:
