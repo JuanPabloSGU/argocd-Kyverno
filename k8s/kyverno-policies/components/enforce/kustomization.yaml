@@ -3,7 +3,7 @@ kind: Component
 metadata:
   name: kyverno-policies-enforce
 
-bases:
+components:
  - ../restricted/
 
 patches:
