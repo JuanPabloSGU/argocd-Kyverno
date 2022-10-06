@@ -5,7 +5,7 @@ namespace: argocd
 
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.9/manifests/install.yaml
-  - https://github.com/argoproj/argo-cd/tree/v2.4.9/manifests/crds 
+  - https://github.com/argoproj/argo-cd/v2.4.9/manifests/crds 
   - namespace.yaml
 
 patches:
