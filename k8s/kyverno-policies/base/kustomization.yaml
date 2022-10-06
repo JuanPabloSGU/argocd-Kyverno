@@ -3,6 +3,3 @@ kind: Kustomization
 metadata:
   name: kyverno-policies
   namespace: argocd
-
-resources:
-  - https://github.com/kyverno/policies/pod-security

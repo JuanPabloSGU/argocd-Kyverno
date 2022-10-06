@@ -1,10 +1,10 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
 metadata:
   name: kyverno-policies-enforce
 
 bases:
-  - ../restricted/
+ - ../restricted/
 
 patches:
   - patch: |-
@@ -13,3 +13,4 @@ patches:
         value: enforce
     target:
       kind: ClusterPolicy
+
