@@ -6,6 +6,4 @@ components:
 
 resources:
   - https://raw.githubusercontent.com/kyverno/policies/release-1.8/nginx-ingress/nginx-custom-snippets/disallow-custom-snippets.yaml
-
-patches:
-  - path: ./require_labels.yaml
+  - ./require_labels.yaml
