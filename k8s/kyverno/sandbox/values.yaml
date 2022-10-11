@@ -10,3 +10,19 @@ config:
       "include": ["argocd"],
       "exclude": []
   }
+
+grafana.ini:
+  server:
+    domain: monitoring.example.com
+    root_url: "%(protocol)s://%(domain)s/grafana"
+    serve_from_sub_path: true
+ingress:
+  enabled: true
+  hosts:
+    - "monitoring.example.com"
+  path: "/grafana"
+
+dasboards:
+  default:
+    custom-dashboard:
+      file: ../../../kyverno-dashboard.json
