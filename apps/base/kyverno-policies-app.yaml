@@ -21,7 +21,7 @@ spec:
     path: k8s/kyverno-policies/overlays/dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: kyverno
   syncPolicy:
     automated:
       allowEmpty: true
