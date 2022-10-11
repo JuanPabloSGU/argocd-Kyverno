@@ -7,7 +7,7 @@ config:
   metricsRefreshInterval: 24h
   metricConfig:
     namespaces: {
-      "include": ["argocd"],
+      "include": [],
       "exclude": []
   }
 
