@@ -11,16 +11,20 @@ config:
       "exclude": []
   }
 
-grafana.ini:
-  server:
-    domain: monitoring.example.com
-    root_url: "%(protocol)s://%(domain)s/grafana"
-    serve_from_sub_path: true
 ingress:
   enabled: true
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
+
+  path: /grafana/?(.*)
   hosts:
-    - "monitoring.example.com"
-  path: "/grafana"
+    - k8s.example.dev
+
+grafana.ini:
+  server:
+    root_url: http://localhost:3000/grafana
 
 dasboards:
   default:
