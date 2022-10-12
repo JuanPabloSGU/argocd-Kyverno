@@ -1,3 +1,3 @@
 # argocd-Kyverno
 
-Testing ssh - testing person
+Testing ssh - testing whoami
