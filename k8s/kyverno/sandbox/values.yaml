@@ -1,32 +1,3 @@
-metricsService:
-  create: true
-  type: ClusterIP
-  port: 8000
-
-config:
-  metricsRefreshInterval: 24h
-  metricConfig:
-    namespaces: {
-      "include": [],
-      "exclude": []
-  }
-
-ingress:
+serviceMonitor:
   enabled: true
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/use-regex: "true"
-
-  path: /grafana/?(.*)
-  hosts:
-    - k8s.example.dev
-
-grafana.ini:
-  server:
-    root_url: http://localhost:3000/grafana
-
-dashboards:
-  default:
-    custom-dashboard:
-      file: ../../../kyverno-dashboard.json
+  namespace: argocd
