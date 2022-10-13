@@ -4,6 +4,68 @@
     "resources": [
       {
         "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "sample-pod-deployment",
+        "namespace": "my-app",
+        "uid": "b32a9bb4-2554-418a-8ac9-ff3bdaa98782"
+      }
+    ]
+  },
+  {
+    "policy": "disallow-privilege-escalation",
+    "resources": [
+      {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "sample-pod-deployment",
+        "namespace": "my-app",
+        "uid": "b32a9bb4-2554-418a-8ac9-ff3bdaa98782"
+      }
+    ]
+  },
+  {
+    "policy": "require-labels",
+    "resources": [
+      {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "sample-pod-deployment",
+        "namespace": "my-app",
+        "uid": "b32a9bb4-2554-418a-8ac9-ff3bdaa98782"
+      }
+    ]
+  },
+  {
+    "policy": "require-run-as-nonroot",
+    "resources": [
+      {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "sample-pod-deployment",
+        "namespace": "my-app",
+        "uid": "b32a9bb4-2554-418a-8ac9-ff3bdaa98782"
+      }
+    ]
+  },
+  {
+    "policy": "restrict-seccomp-strict",
+    "resources": [
+      {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "name": "sample-pod-deployment",
+        "namespace": "my-app",
+        "uid": "b32a9bb4-2554-418a-8ac9-ff3bdaa98782"
+      }
+    ]
+  }
+]
+[
+  {
+    "policy": "disallow-capabilities-strict",
+    "resources": [
+      {
+        "apiVersion": "apps/v1",
         "kind": "StatefulSet",
         "name": "argocd-application-controller",
         "namespace": "argocd",
