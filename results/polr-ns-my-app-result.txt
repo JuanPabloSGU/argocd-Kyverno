@@ -1,59 +1,60 @@
-    Seconds:  1665594108
-  Category:   Best Practices
-  Message:    validation error: The label `app.kubernetes.io/name` is required. Rule autogen-check-for-labels failed at path /spec/template/metadata/labels/app.kubernetes.io/name/
-  Policy:     require-labels
-  Resources:
-    API Version:  apps/v1
-    Kind:         Deployment
-    Name:         sample-pod-deployment
-    Namespace:    my-app
-    UID:          b32a9bb4-2554-418a-8ac9-ff3bdaa98782
-  Result:         fail
---
-    Seconds:  1665594118
-  Category:   Pod Security Standards (Restricted)
-  Message:    validation error: Privilege escalation is disallowed. The fields spec.containers[*].securityContext.allowPrivilegeEscalation, spec.initContainers[*].securityContext.allowPrivilegeEscalation, and spec.ephemeralContainers[*].securityContext.allowPrivilegeEscalation must be set to `false`. Rule autogen-privilege-escalation failed at path /spec/template/spec/containers/0/securityContext/
-  Policy:     disallow-privilege-escalation
-  Resources:
-    API Version:  apps/v1
-    Kind:         Deployment
-    Name:         sample-pod-deployment
-    Namespace:    my-app
-    UID:          b32a9bb4-2554-418a-8ac9-ff3bdaa98782
-  Result:         fail
---
-    Seconds:  1665594096
-  Category:   Pod Security Standards (Restricted)
-  Message:    validation error: Running as root is not allowed. Either the field spec.securityContext.runAsNonRoot must be set to `true`, or the fields spec.containers[*].securityContext.runAsNonRoot, spec.initContainers[*].securityContext.runAsNonRoot, and spec.ephemeralContainers[*].securityContext.runAsNonRoot must be set to `true`. Rule autogen-run-as-non-root[0] failed at path /spec/template/spec/securityContext/runAsNonRoot/. Rule autogen-run-as-non-root[1] failed at path /spec/template/spec/containers/0/securityContext/.
-  Policy:     require-run-as-nonroot
-  Resources:
-    API Version:  apps/v1
-    Kind:         Deployment
-    Name:         sample-pod-deployment
-    Namespace:    my-app
-    UID:          b32a9bb4-2554-418a-8ac9-ff3bdaa98782
-  Result:         fail
---
-    Seconds:  1665594096
-  Category:   Pod Security Standards (Restricted)
-  Message:    validation error: Use of custom Seccomp profiles is disallowed. The fields spec.securityContext.seccompProfile.type, spec.containers[*].securityContext.seccompProfile.type, spec.initContainers[*].securityContext.seccompProfile.type, and spec.ephemeralContainers[*].securityContext.seccompProfile.type must be set to `RuntimeDefault` or `Localhost`. Rule autogen-check-seccomp-strict[0] failed at path /spec/template/spec/securityContext/seccompProfile/. Rule autogen-check-seccomp-strict[1] failed at path /spec/template/spec/containers/0/securityContext/.
-  Policy:     restrict-seccomp-strict
-  Resources:
-    API Version:  apps/v1
-    Kind:         Deployment
-    Name:         sample-pod-deployment
-    Namespace:    my-app
-    UID:          b32a9bb4-2554-418a-8ac9-ff3bdaa98782
-  Result:         fail
---
-    Seconds:  1665594110
-  Category:   Pod Security Standards (Restricted)
-  Message:    validation failure: Containers must drop `ALL` capabilities.
-  Policy:     disallow-capabilities-strict
-  Resources:
-    API Version:  apps/v1
-    Kind:         Deployment
-    Name:         sample-pod-deployment
-    Namespace:    my-app
-    UID:          b32a9bb4-2554-418a-8ac9-ff3bdaa98782
-  Result:         fail
+{
+  "policy": "require-labels",
+  "resources": [
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "name": "sample-pod-deployment",
+      "namespace": "my-app",
+      "uid": "b32a9bb4-2554-418a-8ac9-ff3bdaa98782"
+    }
+  ]
+}
+{
+  "policy": "disallow-privilege-escalation",
+  "resources": [
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "name": "sample-pod-deployment",
+      "namespace": "my-app",
+      "uid": "b32a9bb4-2554-418a-8ac9-ff3bdaa98782"
+    }
+  ]
+}
+{
+  "policy": "require-run-as-nonroot",
+  "resources": [
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "name": "sample-pod-deployment",
+      "namespace": "my-app",
+      "uid": "b32a9bb4-2554-418a-8ac9-ff3bdaa98782"
+    }
+  ]
+}
+{
+  "policy": "restrict-seccomp-strict",
+  "resources": [
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "name": "sample-pod-deployment",
+      "namespace": "my-app",
+      "uid": "b32a9bb4-2554-418a-8ac9-ff3bdaa98782"
+    }
+  ]
+}
+{
+  "policy": "disallow-capabilities-strict",
+  "resources": [
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "name": "sample-pod-deployment",
+      "namespace": "my-app",
+      "uid": "b32a9bb4-2554-418a-8ac9-ff3bdaa98782"
+    }
+  ]
+}
