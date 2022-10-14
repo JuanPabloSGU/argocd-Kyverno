@@ -19,13 +19,16 @@ parse_data()
 
   d=`date +%m-%d-%Y`
 
+  result=""
+
   # Put Everything into seperate files
   for ((i = 0; i < ${#ns[@]}; i++)); do
     # kubectl describe -n ${ns[$i]} polr ${polr_n[$i]} | grep "Result: \+fail" -B10 >> "results/${polr_n[$i]}-result.txt"
     # kubectl get polr -n ${ns[$i]} ${polr_n[$i]} -o json | jq '[.results[] | select(.result == "fail") | {policy, resources}] | sort_by(.policy)' > "results/${polr_n[$i]}-result.txt"
-    kubectl get polr -n ${ns[$i]} ${polr_n[$i]} -o json | jq '[.results[] | select(.result == "fail") | {policy, resources}] | sort_by(.policy) | select(length > 0)' >> "results/logs-$d.json"
+    result+=$(kubectl get polr -n ${ns[$i]} ${polr_n[$i]} -o json | jq '[.results[] | select(.result == "fail") | {policy, resources}] | sort_by(.policy) | select(length > 0)')
   done
 
+  echo $result | jq -s 'reduce .[] as $x ([]; . + $x) | group_by(.policy)' | jq --raw-output '.[][]' > "results/logs-$d.json"
 }
 
 parse_data
